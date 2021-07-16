@@ -1,13 +1,15 @@
 import React from 'react';
 import logo from 'img/logo.svg'
 
+console.log(logo);
+
 const Header = () => {
     // const logo = require('img/journal.jpg').default
     return (
     <header className="page-header">
         <div class = "upper-bar">
         <div class = "logo">
-            <a href="index.html"> <img src= {logo} alt="Logo for brand" /> </a>
+            <a href="index.html"> <img src='img/logo.svg' alt="Logo for brand" /> </a>
         </div>
         <nav aria-label="Primary" className="navigation">
           <ul className="menu">

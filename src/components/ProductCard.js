@@ -1,6 +1,9 @@
 import React, {useState} from 'react'
-import learnMore from 'img/learn-more.svg'
-import learnMoreHover from 'img/learn-more-hover.svg'
+import learnMore from '../img/learn-more.svg'
+import learnMoreHover from '../img/learn-more-hover.svg'
+
+console.log(learnMore)
+console.log(learnMoreHover)
 
 const ProductCard = ({data}) => {
 

@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="141" height="47" viewBox="0 0 141 47">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #f1ece6;
+        stroke: #000;
+        opacity: 0.998;
+      }
+
+      .cls-2 {
+        stroke: none;
+      }
+
+      .cls-3 {
+        fill: none;
+      }
+    </style>
+  </defs>
+  <g id="search-bar" className="cls-1">
+    <rect className="cls-2" width="141" height="47" rx="23.5"/>
+    <rect className="cls-3" x="0.5" y="0.5" width="140" height="46" rx="23"/>
+  </g>
+</svg>

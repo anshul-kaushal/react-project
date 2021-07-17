@@ -320,7 +320,7 @@ input[type=range]::-webkit-slider-thumb {
     /* height: auto;
     width: auto; */
     height: auto;
-    width: 10em;
+    width: 8em;
     /* max-height: 24vh;
     max-width: 24vw; */
 }
@@ -332,7 +332,7 @@ input[type=range]::-webkit-slider-thumb {
     /* height: auto;
     width: auto; */
     height: auto;
-    width: 10em;
+    width: 8em;
     /* max-height: 24vh;
     max-width: 24vw; */
     z-index: 2;
@@ -488,11 +488,12 @@ ins{
         line-height: 1.6em;
     }
     .learn-more{
-        margin-bottom: 1.5em;
+		margin-bottom: 0.5em;
+		align-self: center;
     }
     .learn-more-button, .learn-more-button-hover{
         height: auto;
-        width: 7em;
+        width: 9em;
     }
     .copyright{
         font-size: 0.9em;
@@ -597,7 +598,7 @@ ins{
         grid-column: 1 / 2;
         order: 2;
         width: 80%;
-        max-width: 100em;
+        max-width: 22em;
         justify-self: center;
     }
     .product-images{
@@ -614,9 +615,6 @@ ins{
         width: 80%;
         max-width: 100em;
     }
-    .price{
-        /* font-size: 1.3em; */
-    }
     .rating{
         height: auto;
         width: auto;
@@ -630,13 +628,14 @@ ins{
         text-align: left;
         margin-bottom: 0;
         margin-top: 0;
-        line-height: 1.6em;
+		line-height: 1.6em;
+		font-size: 1em;
     }
     .learn-more{
         grid-column: span 2;
         order: 5;
-        margin-top: 0.5em;
-        margin-bottom: 0.5em;
+        margin-top: 1.2em;
+        margin-bottom: 0;
     }
     /* .learn-more-button, .learn-more-button-hover{
         height: auto;
@@ -656,6 +655,9 @@ ins{
 	}
 	.filter{
 		max-width: 18em;
+	}
+	.pagination-text{
+		font-size: 1em;
 	}
 }
 @media screen and (min-width: 90em){
@@ -729,11 +731,12 @@ ins{
 		padding: 0.75em 1.2em 0.75em 1.2em;
     }
     .learn-more{
-        margin-top: 0.75em;
+		margin-top: 0.75em;
+		margin-bottom: 1em;
     }
     .learn-more-button, .learn-more-button-hover{
         height: auto;
-        width: 5em;
+        /* width: 5em; */
     }
     .index-add-to-cart-button, .index-favorite-button{
         font-size: 1em;

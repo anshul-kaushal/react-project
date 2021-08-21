@@ -1,5 +1,9 @@
-import React from 'react';
-import logo from 'img/logo.svg'
+import React, {useContext} from 'react';
+import logo from 'img/ak-logo.svg'
+import ProductContext from 'contexts/singleproduct.js'
+import CartCard from 'components/CartCard'
+import FavouriteCard from 'components/FavouriteCard'
+import {Link} from 'react-router-dom'
 // import icon from 'img/preloader_time-icon.svg'
 
 // console.log(logo);
@@ -7,9 +11,18 @@ import logo from 'img/logo.svg'
 // console.log(icon)
 
 const Header = () => {
+  const {data} = useContext(ProductContext)
+	const cart = useContext(ProductContext)
+	const favourite = useContext(ProductContext)
+
+	const cartProducts = cart.cart
+	const favouriteProducts = favourite.favourite
+
+	const updateCart = cartProducts.map((product) => <CartCard key={product.name} data={product} />)
+	const updateFavourite = favouriteProducts.map((product) => <FavouriteCard key={product.name} data={product} />)
     return (
     <header className="page-header">
-        <div class = "upper-bar">
+        {/* <div class = "upper-bar">
         <div class = "logo">
             <a href="index.html"> <img src={logo} alt="Logo for brand" /> </a>
         </div>
@@ -19,7 +32,7 @@ const Header = () => {
             <li class = "hide"><a href="#">contact</a></li>
             <li class = "hide"><a href="#">services</a></li>
             <li class = "menu-dots-item">
-              <span class = "menu-dots" id="menu">
+              <span className = "menu-dots" id="menu">
               <i className="fas fa-ellipsis-v"></i>
             </span>
             </li>
@@ -30,9 +43,27 @@ const Header = () => {
             <a href="#">About</a>
             <a href="#">services</a>
             <a href="#">contact</a>
-        </div>
+        </div> */}
+        <nav className="upper-bar-nav">
+            <img src={logo} alt="logo" className="ak-logo"/>
+            <ul className="nav-content">
+                <li>
+                    {/* <a href="index.html">home.</a> */}
+                    <Link to={'/cart'} className="fav-and-cart">
+                    <span>{updateCart.length}</span>
+                    <i className="fas fa-shopping-cart"></i>
+                    </Link>
+                </li>
+                <li>
+                    <Link to={'/favourites'} className="fav-and-cart">
+                    <span>{updateFavourite.length}</span>
+                    <i className="fas fa-heart"></i>
+                    </Link>
+                </li>
+            </ul>
+        </nav>
   
-        <div class = "lower-bar">
+        <div className = "lower-bar">
           <h1 className="heading">Products</h1>
         </div>
     </header> 

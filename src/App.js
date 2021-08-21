@@ -4,9 +4,13 @@ import React, { useEffect, useState, useContext} from 'react'
 // import './css/App.css'
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom'
 import ProductContext from 'contexts/singleproduct'
+import CartContext from 'contexts/cart'
 // import CartContext from 'contexts/cart'
 import Products from './pages/Products'
 import firebase from 'utils/firebase'
+import Product from 'pages/Product'
+import Cart from 'pages/Cart'
+import Favourites from 'pages/Favourites'
 
 
 const App = () => {
@@ -46,12 +50,12 @@ const [products, setProducts] = useState([])
       setCart([...cart, cartPage])
     )
   }
-  const [fav, setFav] = useState([])
+  const [favourite, setFavourite] = useState([])
 
-  const addToFav= (selectedProductName) => {
-    const favPage = products.find((product) => product.name === selectedProductName)
+  const addToFavourite= (selectedProductName) => {
+    const favourites = products.find((product) => product.name === selectedProductName)
     return (
-      setFav([...fav, favPage])
+      setFavourite([...favourite, favourites])
     )
   }
 
@@ -64,14 +68,14 @@ const [products, setProducts] = useState([])
   }
 
   const deleteFromFav = (selectedProductName) => {
-    const delFavPage = fav.filter((product) => product.bookTitle !== selectedProductName)
+    const delFavPage = favourite.filter((product) => product.bookTitle !== selectedProductName)
     return (
-      setFav(delFavPage)
+      setFavourite(delFavPage)
     )
   }
 
   const selectProduct = () => {
-    const productPage = products.filter((product) => product.bookTitle === product.bookTitle)
+    const productPage = products.filter((product) => product.name === product.name)
     return (
       productPage
     )
@@ -216,7 +220,7 @@ const [products, setProducts] = useState([])
 	// 		alt: 'image of a mug',
 	// 	}
 	// }
-	let contextValue = {data:products, data:userData, updateUserName:updateUserName, selectProduct:selectProduct, cart:cart, fav:fav, addToCart:addToCart, addToFav:addToFav, deleteFromCart:deleteFromCart, deleteFromFav:deleteFromFav}
+	let contextValue = {data:products, data:userData, updateUserName:updateUserName, selectProduct:selectProduct, cart:cart, favourite:favourite, addToCart:addToCart, addToFavourite:addToFavourite, deleteFromCart:deleteFromCart, deleteFromFav:deleteFromFav}
 	
 	// array of products
 	// const products = [productOne, productTwo, productThree, productFour, productFive, productSix, productSeven, productEight, productNine, productTen];
@@ -225,6 +229,9 @@ const [products, setProducts] = useState([])
 			<ProductContext.Provider value= {contextValue}>
 			<Switch>
 			<Route exact path="/"><Products data={products} /></Route>
+			<Route exact path="/product/:slug"><Product /></Route>
+			<Route exact path="/cart"><Cart /></Route>
+          	<Route exact path="/favourites"><Favourites /></Route>
 			</Switch>
 			</ProductContext.Provider>
 		</Router>

@@ -28,7 +28,43 @@ body {
     font-family: var(--font-para);
 }
 
+.upper-bar-nav{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 0.5em;
+    margin-top: 0.75em;
+}
+.ak-logo{
+    width: 40%;
+}
+.nav-content{
+    display: flex;
+    justify-content: space-between;
+    margin: 0;
+    padding: 0;
+    width: 25%;
+    align-items: center;
+    justify-items: center;
+    color: var(--primary-on);
+    /* margin-right: 0.5em; */
+}
+.nav-content li{
+    list-style: none;
+    align-self: center;
+    justify-self: center;
+}
+.nav-content li span{
+    font-size: .75em;
+}
+.fa-shopping-cart, .fa-heart{
+    font-size: 1.5em;
+}
 
+.fav-and-cart{
+    text-decoration: none;
+    color: inherit;
+}
 .upper-bar{
     display: flex;
     flex-direction: row;

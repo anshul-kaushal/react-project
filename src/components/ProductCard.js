@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import learnMore from '../img/learn-more.svg'
 import learnMoreHover from '../img/learn-more-hover.svg'
+import {Link} from 'react-router-dom'
 
 console.log(learnMore)
 console.log(learnMoreHover)
@@ -89,10 +90,10 @@ const ProductCard = ({data}) => {
     <p className="product-text" lang="zxx">{description}
     </p>
     <div className="learn-more">
-    <a href="product.html">
+    <Link to={`/product/${name}`}>
         <img className="learn-more-button" src={learnMore} alt="button to open the product description page" />
         <img className="learn-more-button-hover" src={learnMoreHover} alt="button to open the product description page" />
-    </a>
+    </Link>
     </div>
     </article>
     )

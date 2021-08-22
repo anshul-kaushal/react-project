@@ -76,7 +76,7 @@ const FavouriteCard = ({data}) => {
                 </div>
                 </div>
                 <div className="cart-remove-button">
-                    <input type="image" src= {remove} className="cart-remove"/>
+                    <input type="image" src= {remove} className="cart-remove" onClick={() => deletingFromFavourites(name)}/>
                     <input type="image" src= {removeHover} className="cart-remove-hover" onClick={() => deletingFromFavourites(name)}/>
                 </div>
             </section>   

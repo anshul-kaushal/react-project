@@ -76,7 +76,7 @@ const CartCard = ({data}) => {
                 </div>
                 </div>
                 <div className="cart-remove-button">
-                    <input type="image" src= {remove} className="cart-remove"/>
+                    <input type="image" src= {remove} className="cart-remove" onClick={() => deletingFromCart(name)}/>
                     <input type="image" src= {removeHover} className="cart-remove-hover" onClick={() => deletingFromCart(name)}/>
                 </div>
             </section>   

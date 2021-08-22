@@ -9,7 +9,7 @@ const Product = () => {
     const singleProduct= useContext(ProductContext)
     const product = singleProduct.selectProduct(slug)
 
-    console.log(product)
+    // console.log(product)
     // updating product page with correct book
     const prod = product.find((product) => product.name === slug)
     return(

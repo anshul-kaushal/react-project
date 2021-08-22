@@ -74,6 +74,7 @@ const Products = ({data}) => {
                                 sort(ratingSort)
     return (
         <Layout>
+        <main className="products">
         <div class="filter-container">
         {/* <button onClick={showFilterBar}>filter and sort</button> */}
         <section class="filter">
@@ -109,6 +110,7 @@ const Products = ({data}) => {
         </section>
         </div>
             <ProductsListing products={productsListing}/>
+        </main>
         </Layout>
     )
 }

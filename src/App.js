@@ -11,6 +11,7 @@ import firebase from 'utils/firebase'
 import Product from 'pages/Product'
 import Cart from 'pages/Cart'
 import Favourites from 'pages/Favourites'
+import FourOFour from 'pages/FourOFour'
 
 
 const App = () => {
@@ -44,7 +45,17 @@ const [products, setProducts] = useState([])
 
   const [cart, setCart] = useState([])
 
+  const addingTwice = (selectedProductName, toWhat) => {
+	  alert(`Can't add ${selectedProductName} to the ${toWhat} twice`)
+  }
   const addToCart = (selectedProductName) => {
+	if (cart.length != 0){
+		const productExists = cart.filter((cartProduct) => selectedProductName === cartProduct.name);
+		if (productExists.length > 0) {
+			addingTwice(selectedProductName, 'cart');
+			return
+		}
+	}
     const cartPage = products.find((product) => product.name === selectedProductName)
     return (
       setCart([...cart, cartPage])
@@ -53,6 +64,13 @@ const [products, setProducts] = useState([])
   const [favourite, setFavourite] = useState([])
 
   const addToFavourite= (selectedProductName) => {
+	if (favourite.length != 0){
+		const productExists = favourite.filter((favouriteProduct) => selectedProductName === favouriteProduct.name);
+		if (productExists.length > 0) {
+			addingTwice(selectedProductName, 'favourite');
+			return
+		}
+	}
     const favourites = products.find((product) => product.name === selectedProductName)
     return (
       setFavourite([...favourite, favourites])
@@ -61,16 +79,17 @@ const [products, setProducts] = useState([])
 
   // on click do not include this product
   const deleteFromCart = (selectedProductName) => {
-    const delCartPage = cart.filter((product) => product.name !== selectedProductName)
+	console.log(cart);
+    const delCartProduct = cart.filter((product) => product.name !== selectedProductName)
     return (
-      setCart(delCartPage)
+      setCart(delCartProduct)
     )
   }
 
-  const deleteFromFav = (selectedProductName) => {
-    const delFavPage = favourite.filter((product) => product.bookTitle !== selectedProductName)
+  const deleteFromFavourite = (selectedProductName) => {
+    const delFavouriteProduct = favourite.filter((product) => product.name !== selectedProductName)
     return (
-      setFavourite(delFavPage)
+      setFavourite(delFavouriteProduct)
     )
   }
 
@@ -220,7 +239,7 @@ const [products, setProducts] = useState([])
 	// 		alt: 'image of a mug',
 	// 	}
 	// }
-	let contextValue = {data:products, data:userData, updateUserName:updateUserName, selectProduct:selectProduct, cart:cart, favourite:favourite, addToCart:addToCart, addToFavourite:addToFavourite, deleteFromCart:deleteFromCart, deleteFromFav:deleteFromFav}
+	let contextValue = {data:products, data:userData, updateUserName:updateUserName, selectProduct:selectProduct, cart:cart, favourite:favourite, addToCart:addToCart, addToFavourite:addToFavourite, deleteFromCart:deleteFromCart, deleteFromFavourite:deleteFromFavourite}
 	
 	// array of products
 	// const products = [productOne, productTwo, productThree, productFour, productFive, productSix, productSeven, productEight, productNine, productTen];
@@ -232,6 +251,7 @@ const [products, setProducts] = useState([])
 			<Route exact path="/product/:slug"><Product /></Route>
 			<Route exact path="/cart"><Cart /></Route>
           	<Route exact path="/favourites"><Favourites /></Route>
+			<Route path="*"><FourOFour /></Route>
 			</Switch>
 			</ProductContext.Provider>
 		</Router>

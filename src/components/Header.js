@@ -45,7 +45,9 @@ const Header = () => {
             <a href="#">contact</a>
         </div> */}
         <nav className="upper-bar-nav">
+            <Link to={'/'}>
             <img src={logo} alt="logo" className="ak-logo"/>
+            </Link>
             <ul className="nav-content">
                 <li>
                     {/* <a href="index.html">home.</a> */}
@@ -60,6 +62,34 @@ const Header = () => {
                     <i className="fas fa-heart"></i>
                     </Link>
                 </li>
+            </ul>
+            <ul className="nav-content-large">
+              <li>
+              <Link to={'/cart'} className="fav-and-cart">
+                <div className="cart-nav">
+                <div>
+                    <span>{updateCart.length}</span>
+                    <i className="fas fa-shopping-cart"></i>
+                </div>
+                <div>
+                  my cart
+                </div>
+                </div>
+              </Link>
+              </li>
+              <li>
+              <Link to={'/favourites'} className="fav-and-cart">
+                <div className="fav-nav">
+                <div>
+                    <span>{updateFavourite.length}</span>
+                    <i className="fas fa-heart"></i>
+                </div>
+                <div>
+                  Favourites
+                </div>
+                </div>
+              </Link>
+              </li>
             </ul>
         </nav>
   

@@ -26,14 +26,7 @@ const ProductCard = ({data}) => {
         return <span className="fas fa-star-half"></span>
     }
 
-    const Rating = () => {
-        
-        // for(let i=1; i<=Math.floor(rating); i++){
-        //     starRatingString += <StarFull />
-        // }
-        // if({rating} % 1 != 0){
-        //     starRatingString += <StarHalf />
-        // }
+    const Rating = () => {   
 
         switch(rating) {
             case 0.5:
@@ -70,17 +63,11 @@ const ProductCard = ({data}) => {
     <article className="product">
     <h2 className="sub-heading">{name}</h2>
     <div className="product-images-container">
+    <Link to={`/product/${name}`}>
     <img className="product-images" src={productImg} alt={img.alt} />
-    <div className="cart-and-favorite">
-      <button type="button" className="index-favorite-button" aria-label="add product to favorites">
-        <i className="far fa-heart"></i>
-    </button>
-    <button type="button" className="index-add-to-cart-button" aria-label="add 
-    product to cart">
-      <i className="fas fa-shopping-cart"></i>
-    </button>
+    </Link>
     </div>
-    </div>
+    
     <div className="price-and-rating">
     <Price />
     <div className="rating">
